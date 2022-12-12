@@ -7,7 +7,6 @@ It contains the definition of routes and views for the application.
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from generator import Generator
-import random
 
 app = Flask(__name__)
 cors = CORS(app)
