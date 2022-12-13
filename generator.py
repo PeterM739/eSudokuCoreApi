@@ -67,7 +67,7 @@ class Generator:
         for i in range(9):
             level1 = random.sample(range(9), random.randint(4,6))
             level2 = random.sample(range(9), random.randint(5,7))
-            level3 = random.sample(range(9), random.randint(6,8))
+            level3 = random.sample(range(9), random.randint(6,7))
             if difficulty == '1':
                 for j in level1:
                     puzzle[i][j] = ' '
