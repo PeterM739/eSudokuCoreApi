@@ -7,7 +7,7 @@ class Generator:
     def __init__(self, dificulty):
         self.dificulty = dificulty
      
-    """Generator sudoku mreže in rešitve sudoku mreže"""
+    """Generator sudoku mreze in resitve sudoku mreze"""
 
     def generate(grid):
         newGrid = copy.deepcopy(grid)
