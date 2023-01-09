@@ -27,9 +27,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
-    <Compile Include="checker.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="generator.py">
       <SubType>Code</SubType>
     </Compile>

@@ -7,7 +7,6 @@ It contains the definition of routes and views for the application.
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from generator import Generator
-from checker import Checker
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -22,19 +21,6 @@ def generate():
     puzzle = Generator(difficulty)
    
     return jsonify(puzzle.generateSudoku())
-
-
-
-#@app.route('/check', methods=["GET"])
-#@cross_origin()
-#def check():
-#    solutionGrid = request.args.get('solutionGrid')
-#    checkGrid = request.args.get('checkGrid')
-
-#    return jsonify(Checker.checkSolution(checkGrid, solutionGrid))
-
-
-
 
 if __name__ == '__main__':
     import os
