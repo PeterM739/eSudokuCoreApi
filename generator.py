@@ -7,12 +7,12 @@ class Generator:
     def __init__(self, dificulty):
         self.dificulty = dificulty
      
-    """description of class"""
+    """Generator sudoku mreže in rešitve sudoku mreže"""
 
     def generate(grid):
         newGrid = copy.deepcopy(grid)
+        numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         for i in range(0, 81):
-            numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
             row = i // 9
             col = i % 9
             if newGrid[row][col] == 0:
@@ -50,11 +50,9 @@ class Generator:
         for i in range(9):
             if grid[row][i] == value and i != col:
                 return False
-
         for i in range(9):
             if grid[i][col] == value and i != row:
                 return False
-
         for i in range(3):
             for j in range(3):
                 if grid[i + (row // 3 * 3)][j + (col // 3 * 3)] == value and i != row and j != col:
@@ -64,19 +62,21 @@ class Generator:
     def  removeNumbers(grid, difficulty):
         puzzle = [[]]
         puzzle = grid
+        upperLimit = 0
+        lowerLimit = 0
+        if difficulty == '1':
+            upperLimit = 6
+            lowerLimit = 4
+        if difficulty == '2':
+            upperLimit = 7
+            lowerLimit = 5
+        if difficulty == '3':
+            upperLimit = 8
+            lowerLimit = 6
         for i in range(9):
-            level1 = random.sample(range(9), random.randint(4,6))
-            level2 = random.sample(range(9), random.randint(5,7))
-            level3 = random.sample(range(9), random.randint(6,8))
-            if difficulty == '1':
-                for j in level1:
-                    puzzle[i][j] = ' '
-            if difficulty == '2':
-                for j in level2:
-                    puzzle[i][j] = ' '
-            if difficulty == '3':
-                for j in level3:
-                    puzzle[i][j] = ' '
+            level = random.sample(range(9), random.randint(lowerLimit,upperLimit))
+            for j in level:
+                puzzle[i][j] = ' '
         return puzzle
 
     def generateSudoku(self):
@@ -90,7 +90,7 @@ class Generator:
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
-]
+        ]
         solution =  Generator.generate(board)
         solutionResult = copy.deepcopy(solution)
         grid =  Generator.removeNumbers(solution, self.dificulty)
