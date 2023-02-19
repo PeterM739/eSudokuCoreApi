@@ -22,6 +22,7 @@ def generate():
    
     return jsonify(puzzle.generateSudoku())
 
+
 if __name__ == '__main__':
     import os
     HOST = os.environ.get('SERVER_HOST', 'localhost')
@@ -30,3 +31,5 @@ if __name__ == '__main__':
     except ValueError:
         PORT = 5555
     app.run()
+
+
