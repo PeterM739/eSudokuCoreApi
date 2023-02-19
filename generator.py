@@ -7,7 +7,9 @@ class Generator:
     def __init__(self, dificulty):
         self.dificulty = dificulty
      
-    """Generator sudoku mre�e in re�itve sudoku mre�e"""
+
+    """Generator sudoku mreze in resitve sudoku mreze"""
+
 
 
     '''Funkcija naredi novo re�itev sudokuja'''
