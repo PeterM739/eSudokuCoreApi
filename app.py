@@ -24,18 +24,6 @@ def generate():
     return jsonify(puzzle.generateSudoku())
 
 
-
-#@app.route('/check', methods=["GET"])
-#@cross_origin()
-#def check():
-#    solutionGrid = request.args.get('solutionGrid')
-#    checkGrid = request.args.get('checkGrid')
-
-#    return jsonify(Checker.checkSolution(checkGrid, solutionGrid))
-
-
-
-
 if __name__ == '__main__':
     import os
     HOST = os.environ.get('SERVER_HOST', 'localhost')
@@ -44,3 +32,5 @@ if __name__ == '__main__':
     except ValueError:
         PORT = 5555
     app.run()
+
+

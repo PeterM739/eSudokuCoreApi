@@ -7,8 +7,10 @@ class Generator:
     def __init__(self, dificulty):
         self.dificulty = dificulty
      
-    """Generator sudoku mreže in rešitve sudoku mreže"""
+    """Generator sudoku mreï¿½e in reï¿½itve sudoku mreï¿½e"""
 
+
+    '''Funkcija naredi novo reï¿½itev sudokuja'''
     def generate(grid):
         newGrid = copy.deepcopy(grid)
         numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -46,13 +48,18 @@ class Generator:
             grid[row][col] = 0
         return False
 
+    '''Funkcija preveri, ï¿½e neko ï¿½tevilo v nekem polju ustreza pravilom sudokuja 
+       glede na ostala ï¿½tevila v mreï¿½i'''
     def isValid(grid, row, col, value):
+        #Prevarjanje, ï¿½e se vrednost value ponovi v isti vrstici.
         for i in range(9):
             if grid[row][i] == value and i != col:
                 return False
+        #Preverjanje, ï¿½e se vrednost value ponovi v istem stolpcu.
         for i in range(9):
             if grid[i][col] == value and i != row:
                 return False
+        #Preverjanje, ï¿½e se vrednost value ponovi znotraj manjï¿½ega kvadrata 3 x 3.
         for i in range(3):
             for j in range(3):
                 if grid[i + (row // 3 * 3)][j + (col // 3 * 3)] == value and i != row and j != col:
@@ -64,6 +71,7 @@ class Generator:
         puzzle = grid
         upperLimit = 0
         lowerLimit = 0
+        #Doloï¿½i se spodnja in zgronja meja koliko polj se zbriï¿½e v vrstici
         if difficulty == '1':
             upperLimit = 6
             lowerLimit = 4
@@ -75,6 +83,10 @@ class Generator:
             lowerLimit = 6
         for i in range(9):
             level = random.sample(range(9), random.randint(lowerLimit,upperLimit))
+            '''Seznam doloï¿½ene dolï¿½ine ï¿½tevil od 1 do 9, 
+            ki se ne ponavljajo in so nakljuï¿½no razporejena.'''
+            level = random.sample(range(9), random.randint(lowerLimit,upperLimit))
+            #Brisanje vrednosti v doloï¿½enem polju
             for j in level:
                 puzzle[i][j] = ' '
         return puzzle
