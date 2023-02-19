@@ -84,7 +84,6 @@ class Generator:
             upperLimit = 8
             lowerLimit = 6
         for i in range(9):
-            level = random.sample(range(9), random.randint(lowerLimit,upperLimit))
             '''Seznam dolo�ene dol�ine �tevil od 1 do 9, 
             ki se ne ponavljajo in so naklju�no razporejena.'''
             level = random.sample(range(9), random.randint(lowerLimit,upperLimit))
