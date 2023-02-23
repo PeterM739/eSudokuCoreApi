@@ -25,7 +25,7 @@ class Generator:
                     if Generator.isValid(newGrid, row, col, num):
                         checkingGrid = copy.deepcopy(newGrid)
                         checkingGrid[row][col] = num
-                        if Generator.solveSudoku(checkingGrid, 0, 0):
+                        if Generator.solveSudoku(checkingGrid, row, col):
                             newGrid[row][col] = num
                             break
                         else:
@@ -34,6 +34,7 @@ class Generator:
                         continue
         return newGrid
 
+    '''Funckija preveri, če je neka sudoku mreža rešljiva'''
     def solveSudoku(grid, row, col):
         if (row == 8 and col == 9):
             return True

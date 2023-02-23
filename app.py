@@ -4,6 +4,7 @@ It contains the definition of routes and views for the application.
 """
 
 #from utils import *
+from logging import raiseExceptions
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from generator import Generator
@@ -17,10 +18,13 @@ wsgi_app = app.wsgi_app
 @app.route('/generate', methods=["GET"])
 @cross_origin()
 def generate():
-    difficulty = request.args.get('difficulty')
-    puzzle = Generator(difficulty)
+    try:
+        difficulty = request.args.get('difficulty')
+        puzzle = Generator(difficulty)
    
-    return jsonify(puzzle.generateSudoku())
+        return jsonify(puzzle.generateSudoku())
+    except:
+        pass
 
 
 if __name__ == '__main__':
