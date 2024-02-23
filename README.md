@@ -1,2 +1,2 @@
 # eSudokuCoreApi
-Service which provide sudoku quiz and its solution
+Service API made with Flask framework which provides sudoku quiz and its solution
